@@ -1,6 +1,8 @@
 
 # Frugi
 
+> A.I Disclosure:  Anthropic Claude was used for writing this README.md, the user manual and all unit tests. All other code is hand-written by me.
+
 Frugi (meaning frugal, or perhaps better, honest) is a complete subtractive digital synthesiser for the STM32F411CEU6 "Black Pill" board. It has 8 voices, 2 oscillators per voice, a resonant multi-mode filter, envelopes, an LFO and a stereo chorus, and it is played and programmed over MIDI.
 
 Frugi is the example project for the article series **"Audio Doesn't Wait"**, an introduction to synth control-plane architecture. *(Link to follow on publication.)*

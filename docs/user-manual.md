@@ -1,5 +1,7 @@
 # Frugi User Manual
 
+> A.I Disclosure: This user manual was generated using Anthropic Claude, which read the code-base to obtain the content. 
+
 Frugi is an 8-voice subtractive synthesiser for the STM32F411 "Black Pill" board, played and programmed over MIDI. It is the example project for the article series *"Audio Doesn't Wait"*.
 
 This manual is in two parts:
