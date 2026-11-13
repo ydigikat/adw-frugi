@@ -95,7 +95,7 @@ write_crc(const uint8_t record[PATCH_STORE_SLOT_SIZE]) {
 /*
  * Returns true if the record's magic byte marks the slot as occupied.
  */
-bool is_patch_store_occupied(const uint8_t in[PATCH_STORE_SLOT_SIZE]) {
+bool patch_store_is_occupied(const uint8_t in[PATCH_STORE_SLOT_SIZE]) {
   RTT_ASSERT(in);
   return in[OFF_MAGIC] == PATCH_STORE_MAGIC;
 }
@@ -196,7 +196,7 @@ bool patch_store_unpack(const uint8_t in[PATCH_STORE_SLOT_SIZE],
                         char name_out[PATCH_NAME_LEN]) {
   RTT_ASSERT(in);
 
-  if (!is_patch_store_occupied(in)) {
+  if (!patch_store_is_occupied(in)) {
     return false;
   }
 

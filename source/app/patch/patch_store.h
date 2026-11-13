@@ -66,7 +66,7 @@ bool patch_store_unpack(const uint8_t in[PATCH_STORE_SLOT_SIZE],
                         param_value_t params[PARAM_COUNT],
                         char name_out[PATCH_NAME_LEN]);
 
-bool slot_occupied(const uint8_t in[PATCH_STORE_SLOT_SIZE]);
+bool patch_store_is_occupied(const uint8_t in[PATCH_STORE_SLOT_SIZE]);
 uint16_t patch_store_slot_addr(uint16_t slot);
 
 #endif /* FRUGI_PATCH_STORE_H */
