@@ -19,7 +19,7 @@
  * ------------------------------------------------------------------------------
  *   offset  size  field
  *   0       1     magic            (PATCH_STORE_MAGIC marks an occupied slot)
-  1919 *   1       1     schema version
+ *   1       1     schema version
  *   2       2     param count
  *   4       16    name (NUL padded/terminated)
  *   20      2     checksum (CRC-16/CCITT over the version..payload)
