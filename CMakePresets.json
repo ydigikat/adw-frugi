@@ -1,0 +1,96 @@
+
+{
+    "version": 2,
+    "configurePresets": [
+      {
+        "name": "default",
+        "hidden": true,
+        "generator": "Ninja",
+        "binaryDir": "${sourceDir}/build/${presetName}/build",
+        "cacheVariables": {
+          "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/${presetName}/install"
+        },
+        "architecture": {
+          "value": "unspecified",
+          "strategy": "external"
+        }
+      },     
+      {
+        "name": "clang",
+        "hidden": true,
+        "cacheVariables": {
+          "CMAKE_TOOLCHAIN_FILE": {
+            "type": "FILEPATH",
+            "value": "${sourceDir}/cmake/stm_arm_clang.cmake"
+          }
+        },
+        "vendor": {
+          "microsoft.com/VisualStudioSettings/CMake/1.0": {
+            "intelliSenseMode": "linux-clang-arm"
+          }
+        }
+      },
+      {
+        "name": "debug",
+        "inherits": ["default", "clang"],
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Debug"
+        }
+      },
+      {
+        "name": "release",
+        "inherits": ["default", "clang"],
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release"
+        }
+      },
+      {
+        "name": "debug-headless",
+        "inherits": ["debug"],
+        "cacheVariables": {
+          "HEADLESS": "ON"
+        }
+      },
+      {
+        "name": "release-headless",
+        "inherits": ["release"],
+        "cacheVariables": {
+          "HEADLESS": "ON"
+        }
+      },     
+       {
+        "name": "test",
+        "generator": "Ninja",
+        "binaryDir": "${sourceDir}/build/test",
+        "cacheVariables": {
+          "CMAKE_TOOLCHAIN_FILE": {
+            "type": "FILEPATH",
+            "value": "${sourceDir}/cmake/host_clang.cmake"
+          },
+          "CMAKE_BUILD_TYPE": "Debug"
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "debug",
+        "configurePreset": "debug"
+      },
+      {
+        "name": "release",
+        "configurePreset": "release"
+      },
+      {
+        "name": "debug-headless",
+        "configurePreset": "debug-headless"
+      },
+      {
+        "name": "release-headless",
+        "configurePreset": "release-headless"
+      },     
+      {
+        "name": "test",
+        "configurePreset": "test"
+      }
+    ]
+  }

@@ -1,0 +1,23 @@
+# clangd configuration (IntelliSense for VS Code's clangd extension).
+#
+# CMake writes compile_commands.json into each preset's binary directory,
+# which clangd does not search by default, so point it at them explicitly.
+# Run the matching CMake configure (or build) once to create them.
+#
+# Firmware sources use the cross-compiler database (debug preset).  Swap to
+# build/release/build to see the release configuration (SYNTH_MAX_VOICES=8,
+# no DEBUG).
+#
+# The ST toolchain's system headers come from --query-driver, which is a
+# command-line flag rather than a .clangd setting - see clangd.arguments in
+# .vscode/settings.json.
+CompileFlags:
+  CompilationDatabase: build/debug/build
+
+---
+# Unit tests build with the host compiler (test preset), not the ARM
+# toolchain, so they need that preset's database.
+If:
+  PathMatch: source/test/.*
+CompileFlags:
+  CompilationDatabase: build/test

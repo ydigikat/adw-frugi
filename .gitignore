@@ -1,0 +1,6 @@
+**/build/
+*.ttf
+# ...except the display font sources (OFL - redistributable with their licence)
+!source/app/ui/font/*/*.ttf
+*.pdf
+logs/
